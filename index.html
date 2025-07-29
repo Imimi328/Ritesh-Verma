@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritesh Verma | Portfolio & Resume</title>
+  <link rel="icon" href="https://i.ibb.co/PFKdcN5/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Your portfolio CSS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Navbar (Merged: Links to all sections) -->
+  <header class="navbar">
+    <a href="#hero" class="logo">Ritesh Verma.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work-history">Work_History</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#photos">Thumbnails</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#repositories">Repositories</a></li>
+      <li><a href="#rocket">Rocket_Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button id="theme-toggle" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- Hero Section (Merged: Uses portfolio typewriter for subtitle) -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Ritesh Verma</h1>
+        <p class="hero-subtitle"><span class="typewriter"></span></p>
+        <a href="#about" class="cta-btn">Explore My Journey</a>
+      </div>
+      <canvas id="hero-canvas"></canvas>
+    </section>
+
+  <!-- About Section (From Resume) -->
+  <section id="about" class="portfolio-section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-image-wrapper">
+        <img src="https://i.ibb.co/dhWfVYy/334509482-2365483110317149-9125369046522607254-n300.jpg"
+            alt="Ritesh Verma"
+            class="about-image">
+      </div>
+
+      <p class="section-desc">
+        I'm Ritesh Verma, a passionate game developer and animator with a knack for creating engaging and immersive experiences. I'm fueled by the challenge of bringing ideas to life through code and animation, and I thrive in collaborative environments where I can learn from others and contribute my expertise.
+      </p>
+    </div>
+  </section>
+
+    <!-- Skills Section (From Resume) -->
+    <section id="skills" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-desc">A showcase of my technical and creative expertise.</p>
+        <div class="skills-grid">
+          <div class="skill-card" data-skill="100">
+            <h3>Coding</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="100">
+            <h3>Object-Oriented Programming</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="80">
+            <h3>Testing & Debugging</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="80">
+            <h3>Color Grading</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="60">
+            <h3>Adobe Premiere Pro</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="60">
+            <h3>Adobe After Effects</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="100">
+            <h3>Filmora 13</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="100">
+            <h3>CapCut</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="100">
+            <h3>Unity</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="100">
+            <h3>Advanced Editing Techniques</h3>
+            <div class="progress-bar"></div>
+          </div>
+          <div class="skill-card" data-skill="80">
+            <h3>Character Animation</h3>
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work History Section (From Resume) -->
+    <section id="work-history" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Work History</h2>
+        <p class="section-desc">My professional journey and contributions.</p>
+        <div class="work-card">
+          <h3>Team Emogi (Pune)</h3>
+          <h4>Programmer (April 2019 - April 2022)</h4>
+          <ul>
+            <li>Designed and developed robust software solutions to meet client requirements for functionality, scalability, and performance.</li>
+            <li>Collaborated with team members to define application requirement specifications.</li>
+            <li>Identified opportunities for process improvement, leading to a more efficient development cycle.</li>
+          </ul>
+          <h4>3D Animator (April 2022 - Present)</h4>
+          <ul>
+            <li>Developed gameplay mechanics, features, and systems using C# in Unity for various game projects.</li>
+            <li>Collaborated with designers, artists, and animators to integrate assets and ensure seamless gameplay experiences.</li>
+            <li>Optimized game performance by profiling and debugging code, reducing memory usage, and enhancing frame rates across multiple platforms.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section (From Portfolio) -->
+    <section id="videos" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Video Editing</h2>
+        <p class="section-desc">Immersive visuals brought to life through my edits.</p>
+        <div class="video-gallery">
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ULtS0-kSJN0" allowfullscreen></iframe>
+            <h3>3D Animation</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://player.vimeo.com/video/1033377518?h=2fdef938d4" allowfullscreen></iframe>
+            <h3>Advertisement</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/r-Cxm-K4GVM" allowfullscreen></iframe>
+            <h3>Documentary Style</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/dgzO1jKTPio" allowfullscreen></iframe>
+            <h3>Gaming</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/IJldof7R7Qg" allowfullscreen></iframe>
+            <h3>3D Map Animation</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/U9dUnVU8PEE" allowfullscreen></iframe>
+            <h3>3D Scene</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/aDwq-YDF_aw" allowfullscreen></iframe>
+            <h3>VFX</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/5H07gIJ7Hv8" allowfullscreen></iframe>
+            <h3>VFX 1</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/_WX0Kf51EYk" allowfullscreen></iframe>
+            <h3>3D Animation 1</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/PZJk1k1mDIo" allowfullscreen></iframe>
+            <h3>3D Animation 2</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/bi-gWYtmlY4" allowfullscreen></iframe>
+            <h3>KeyFrame</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://player.vimeo.com/video/1033378391?h=5d8f485eab" allowfullscreen></iframe>
+            <h3>Gaming Style</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/F-V_5u198cY" allowfullscreen></iframe>
+            <h3>Shorts or Reels</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/E2u8o_DbklQ" allowfullscreen></iframe>
+            <h3>Vlog Style</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/JHo-qSLM5tk" allowfullscreen></iframe>
+            <h3>2D Animation</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Section (Thumbnails, From Portfolio) -->
+    <section id="photos" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Thumbnail Designing</h2>
+        <p class="section-desc">Snapshots transformed into captivating visuals.</p>
+        <div class="photo-gallery">
+          <div class="photo-card">
+            <img src="https://i.ibb.co/GvQK56X3/Yi-LT8-J4bb-WY-maxresdefault.jpg" alt="Thumbnail for Creative Edit 5" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/GvQK56X3/Yi-LT8-J4bb-WY-maxresdefault.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/Q78qdqXW/Thumnail-Intro-Com.jpg" alt="Thumbnail for Creative Edit 10" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/Q78qdqXW/Thumnail-Intro-Com.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/J8KdFMP/dgz-O1j-KTPio-maxresdefault.jpg" alt="Thumbnail for Creative Edit 1" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/J8KdFMP/dgz-O1j-KTPio-maxresdefault.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/dt3y0VX/Thumbnail-2.webp" alt="Thumbnail for Creative Edit 2" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/dt3y0VX/Thumbnail-2.webp', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/JjhTwwZx/9-K7-NZfj-Qw-Yw-maxresdefault.jpg" alt="Thumbnail for Creative Edit 3" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/JjhTwwZx/9-K7-NZfj-Qw-Yw-maxresdefault.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/Rv3Zsz2/Advertisement.jpg" alt="Thumbnail for Creative Edit 4" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/Rv3Zsz2/Advertisement.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/q36dp6PP/thum4.png" alt="Thumbnail for Creative Edit 8" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/q36dp6PP/thum4.png', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/Y4XYwPb4/Thum2.jpg" alt="Thumbnail for Creative Edit 9" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/Y4XYwPb4/Thum2.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/Fby5v6nB/Sample.jpg" alt="Thumbnail for Creative Edit 6" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/Fby5v6nB/Sample.jpg', false)">View Thumbnail</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://i.ibb.co/nMf9kcq4/PlayYume.png" alt="Thumbnail for Creative Edit 7" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://i.ibb.co/nMf9kcq4/PlayYume.png', false)">View Thumbnail</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Section (From Portfolio) -->
+    <section id="games" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Game Development</h2>
+        <div class="center-button-wrapper">
+          <a href="https://emogi.itch.io/" target="_blank" rel="noopener" class="green-button">
+            Visit My itch.io Page
+          </a>
+        </div>
+        <br><br>
+        <div class="game-gallery">
+          <div class="game-card">
+            <img src="https://img.itch.zone/aW1nLzIwMzUwNTkyLnBuZw==/315x250%23c/FpExiq.png" alt="Fragments of Reality Logo" loading="lazy">
+            <h3>Fragments of Reality</h3>
+            <p>A psychological horror walking simulator blurring the boundaries between dreams and reality.</p>
+            <br> <br>
+            <a href="https://emogi.itch.io/fragmentsofreality" target="_blank" rel="noopener" class="cta-btn small">Play Now</a>
+          </div>
+          <div class="game-card">
+            <img src="https://img.itch.zone/aW1nLzIxMDg4NTc1LmpwZw==/315x250%23c/8aPiyi.jpg" alt="Indian Wagon R Taxi Game Logo" loading="lazy">
+            <h3>Indian Wagon R Taxi Game</h3>
+            <p>A fun taxi simulation game set in India.</p>
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ULtS0-kSJN0" allowfullscreen></iframe>
+            <br>
+            <br>
+            <a href="https://emogi.itch.io/wagon-r-taxi-game" target="_blank" rel="noopener" class="cta-btn small">Play Now</a>
+          </div>
+          <div class="game-card">
+            <img src="https://img.itch.zone/aW1nLzIxMjc5MDM0LmpwZw==/315x250%23c/1EaJvD.jpg" alt="Doraemon 3D Open World Logo" loading="lazy">
+            <h3>Doraemon 3D Open World</h3>
+            <p>An open-world adventure inspired by Doraemon.</p>
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ZSGiIHlBkl8" allowfullscreen></iframe>
+            <br> <br>
+            <a href="https://emogi.itch.io/doraeman" target="_blank" rel="noopener" class="cta-btn small">Play Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repositories Section (From Portfolio) -->
+    <section id="repositories" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Repositories</h2>
+        <p class="section-desc">
+          Explore my open-source projects on GitHub. Each repository includes source code, documentation, and dedicated webpages for more details. Visit my <a href="https://github.com/Imimi328" target="_blank" rel="noopener">GitHub profile</a> for the full overview.
+        </p>
+        <div class="repo-gallery">
+          <!-- Repository Card 1: OBS-Scene-Controller -->
+          <div class="repo-card">
+            <h3>OBS-Scene-Controller</h3>
+            <p>The OBS Scene Controller is a powerful tool developed by Ritesh Verma to streamline OBS scene management and screen casting for content creators. It integrates a PySide6 GUI, Flask web server, and MSS-based screen capture for a seamless live production experience.</p>
+            <div class="center-button-wrapper">
+              <a href="https://github.com/Imimi328/OBS-Scene-Controller" target="_blank" rel="noopener" class="green-button">View on GitHub</a>
+            </div>
+            <div class="center-button-wrapper">
+              <a href="https://imimi328.github.io/OBS-Scene-Controller/" target="_blank" rel="noopener" class="green-button">Project Webpage</a>
+            </div>
+          </div>
+
+          <!-- Repository Card 2: OpenPDF -->
+          <div class="repo-card">
+            <h3>OpenPDF</h3>
+            <p>OpenPDF is a lightweight, fast, and feature-rich PDF viewer application built using Python and PyQt5. Designed with a sleek dark mode and a clean interface, OpenPDF offers a modern PDF reading experience.</p>
+            <div class="center-button-wrapper">
+              <a href="https://github.com/Imimi328/OpenPDF" target="_blank" rel="noopener" class="green-button">View on GitHub</a>
+            </div>
+            <div class="center-button-wrapper">
+              <a href="https://imimi328.github.io/OpenPDF/" target="_blank" rel="noopener" class="green-button">Project Webpage</a>
+            </div>
+          </div>
+
+          <!-- Repository Card 3: Live-Wallpaper -->
+          <div class="repo-card">
+            <h3>Live-Wallpaper</h3>
+            <p>Live wallpaper engine made with pure Python — redefining desktop interaction without heavy resources.</p>
+            <div class="center-button-wrapper">
+              <a href="https://github.com/Imimi328/Live-Wallpaper" target="_blank" rel="noopener" class="green-button">View on GitHub</a>
+            </div>
+            <div class="center-button-wrapper">
+              <a href="https://imimi328.github.io/Live-Wallpaper/" target="_blank" rel="noopener" class="green-button">Project Webpage</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rocket Project Section (From Portfolio) -->
+    <section id="rocket" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Ritesh Verma’s Rocket Project (2024–2025)</h2>
+        <p class="section-desc">From Science Exhibition to Chandrayaan-Inspired Rocket & Rover Mission</p>
+        <div class="wiki-layout">
+          <div class="wiki-infobox">
+            <h3>Project Summary</h3>
+            <p><strong>Developer:</strong> Ritesh Verma</p>
+            <p><strong>Funding:</strong> ₹40,000 by SNBP Yerwada</p>
+            <p><strong>Key Features:</strong> Solid-fuel rocket, deployable rover, telemetry</p>
+            <p><strong>Status:</strong> Completed prototype</p>
+            <p><strong>Inspiration:</strong> ISRO’s Chandrayaan-3</p>
+
+            <div class="center-wrapper">
+              <div class="curvy-corner-outline">
+                <img src="https://i.ibb.co/3Yv6fK7T/Whats-App-Image-2025-07-29-at-08-52-57-eeb9adb0.jpg" 
+                     alt="Rocket prototype image" 
+                     loading="lazy" 
+                     class="infobox-image">
+              </div>
+            </div>
+            <br><br>
+            <div style="text-align: center;">
+              <button class="action-btn" onclick="openModal('https://i.ibb.co/3Yv6fK7T/Whats-App-Image-2025-07-29-at-08-52-57-eeb9adb0.jpg', false)">View Image</button>
+            </div>
+          </div>
+          <div class="wiki-content">
+            <div class="wiki-section">
+              <h3 id="overview">Overview</h3>
+              <p>Ritesh Verma’s Rocket Project (2024–2025) is a pioneering student-led aerospace endeavor initiated and executed by Indian student and inventor Ritesh Verma. The project gained recognition after a successful science exhibition that led to funding of ₹40,000. The project aimed to simulate a realistic lunar mission with a custom-built solid-fuel rocket, a deployable rover, and integrated telemetry systems—all designed and engineered by Verma himself.</p>
+            
+            </div>
+            <div class="wiki-section">
+              <h3 id="background">Background</h3>
+              <p>At just 18 years old, Ritesh Verma presented a small-scale satellite and rocket system capable of wireless image transmission using a networked tower at a local science exhibition. The project’s sophistication and ambition drew attention from faculty and judges, earning it both acclaim and funding to develop an advanced iteration.</p>
+            </div>
+            <div class="wiki-section">
+              <h3 id="development">Development Phases</h3>
+              <p><strong>Initial Concept and Prototype</strong>: The initial phase featured a compact rocket system equipped with a basic satellite module capable of image transmission. Despite its simplicity, the design showcased key principles in rocketry, communication systems, and onboard electronics.</p>
+              <p><strong>Advanced Project – Chandrayaan-Inspired Mission</strong>: With additional funding and time, Verma designed a more advanced model inspired by ISRO’s Chandrayaan-3. The updated project included a custom-designed solid fuel rocket, a rover with autonomous capabilities, a lunar lander-style deployment module, working solar panels, a fully integrated flight computer, and thrust vector control using onboard sensors and actuators.</p>
+            </div>
+            <div class="wiki-section">
+              <h3 id="specifications">Rocket Specifications</h3>
+              <ul>
+                <li><strong>Total Mass</strong>: 4.5 kg</li>
+                <li><strong>Thrust</strong>: Estimated at 34 kg</li>
+                <li><strong>Propellant</strong>: Solid mixture of potassium nitrate, dextrose, glycerine, and magnesium powder</li>
+                <li><strong>Apogee Altitude</strong>: ~500 meters</li>
+                <li><strong>Average Speed</strong>: 11–12 m/s</li>
+                <li><strong>Descent System</strong>: Parachute-based recovery system</li>
+              </ul>
+              <p>The fuel mixture was carefully calculated to optimize the burn rate, efficiency, and thrust curve for a stable, high-apogee flight.</p>
+            </div>
+            <div class="wiki-section">
+              <h3 id="innovations">Technical Innovations</h3>
+              <ul>
+                <li><strong>Flight Computer and Telemetry</strong>: Ritesh designed a custom flight computer capable of thrust vector calculations, real-time sensor integration, data logging and transmission, and stability control via embedded software (C++).</li>
+                <li><strong>Lander and Rover System</strong>: The module mimicked real-world lander designs, capable of opening a hatch to release the rover. The rover featured self-deploying solar panels, mechanisms to exit the lander module autonomously, roaming capability in a defined perimeter, and live image transmission using wireless protocols.</li>
+                <li><strong>Manufacturing</strong>: All rocket components were 3D-printed or custom-machined. The rocket body included aerodynamic fins and a strong yet lightweight shell to handle the combustion pressure and maintain stability. The project relied heavily on in-house prototyping, with Ritesh personally handling design, simulation, assembly, and testing.</li>
+              </ul>
+            </div>
+            <div class="wiki-section">
+              <h3 id="value">Educational and Scientific Value</h3>
+              <p>This project holds significance in both educational and engineering contexts, offering a hands-on example of interdisciplinary engineering (mechanical, electrical, software), low-budget innovation in space simulation, and student-level aerospace research. It serves as a working model of integrated rocketry and robotics.</p>
+            </div>
+            <div class="wiki-section">
+              <h3 id="legacy">Legacy and Future Goals</h3>
+              <p>Ritesh Verma’s project has inspired peers and educators alike, serving as a model of self-motivated research and scientific exploration at the undergraduate level. His aspirations include entering the field of aerospace engineering, starting a space-tech division within his company, Team Emogi, and developing more sophisticated models, including multi-stage rockets and AI-driven rovers.</p>
+            </div>
+            <div class="wiki-section">
+              <h3 id="media">Media</h3>
+              <div class="media-gallery">
+                <div class="media-item">
+                  <div class="video-wrapper aspect-16-9">
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/oCPvXFcLTVM" allowfullscreen></iframe>
+                  </div>
+                  <p>Video Of Rover</p>
+                </div>
+                <div class="media-item">
+                  <div class="video-wrapper aspect-16-9">
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/OGqf8eJDpsg" allowfullscreen></iframe>
+                  </div>
+                  <p>Video Of Launch Plan</p>
+                </div>
+                <div class="media-item">
+                  <div class="video-wrapper aspect-9-16">
+                    <iframe loading="lazy" src="https://www.youtube.com/embed/yPDDjBWBZp4" allowfullscreen></iframe>
+                  </div>
+                  <p>Video of Thrust Vector Control</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Contact Section (Merged: Enhanced with canvas and animations) -->
+    <section id="contact" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-desc">Let's connect and create something amazing together!</p>
+        <canvas id="contact-canvas" class="contact-canvas"></canvas>
+        <div class="contact-gallery">
+          <div class="contact-card">
+            <img src="https://i.ibb.co/GfFBzFhR/discord-logo-discord-icon-transparent-free-png.png" alt="Discord Logo" class="contact-logo" loading="lazy">
+            <h3>Discord</h3>
+            <a href="https://www.discordapp.com/users/954607681694470165" target="_blank" rel="noopener" class="contact-link">imimi_geimeo</a>
+          </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/Tq4DWTmf/instagram-icon-512x512-ggh8x3cn.png" alt="Instagram Logo" class="contact-logo" loading="lazy">
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/team_emogi/" target="_blank" rel="noopener" class="contact-link">@team_emogi</a>
+          </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube Logo" class="contact-logo" loading="lazy">
+            <h3>YouTube (Main)</h3>
+            <a href="https://www.youtube.com/@imimigeimeo" target="_blank" rel="noopener" class="contact-link">Imimi geimeo</a>
+          </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube Logo" class="contact-logo" loading="lazy">
+            <h3>YouTube (Second)</h3>
+            <a href="https://www.youtube.com/@TeamEmogi/videos" target="_blank" rel="noopener" class="contact-link">Team Emogi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for Full-Screen Viewing (From Portfolio) -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <span class="modal-close" aria-label="Close Modal">&times;</span>
+    <div class="modal-content">
+      <div class="modal-loader">Loading...</div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button (From Portfolio) -->
+  <button id="back-to-top" aria-label="Back to Top">↑</button>
+
+  <!-- Footer (Merged: Dynamic year) -->
+  <footer>
+    <p>© <span id="current-year"></span> Ritesh Verma || Team Emogi. All rights reserved.</p>
+    <p>Contact me: Discord: <a href="https://www.discordapp.com/users/954607681694470165" target="_blank" rel="noopener">imimi_geimeo</a> | Instagram: <a href="https://www.instagram.com/team_emogi/" target="_blank" rel="noopener">@team_emogi</a></p>
+  </footer>
+
+  <script src="script.js"></script> <!-- Your portfolio JS -->
+</body>
+</html>
