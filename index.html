@@ -11,6 +11,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
+  <div id="loader-overlay">
+    <canvas id="loader-canvas" width="240" height="240"></canvas>
+    <div id="loader-text">Loading...</div>
+  </div>
+
+
   <!-- Navbar (Merged: Links to all sections) -->
   <header class="navbar">
     <a href="#hero" class="logo">Ritesh Verma.</a>
@@ -206,6 +213,66 @@
         </div>
       </div>
     </section>
+
+        <!-- YouTube Video Section -->
+    <section id="youtube-videos" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">YouTube Video Section</h2>
+        <p class="section-desc">A curated selection of my content categorized across Gaming, Vlogging, and Game Development.</p>
+        
+        <!-- Gaming Playlist -->
+        <h3>Gaming</h3>
+        <div class="video-gallery">
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/5fN-VS-y-KY" allowfullscreen></iframe>
+            <h4>Gaming Video 1</h4>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/YiLT8J4bbWY" allowfullscreen></iframe>
+            <h4>Gaming Video 2</h4>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/5KybMRZsfTQ" allowfullscreen></iframe>
+            <h4>Gaming Video 3</h4>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/O20fsEHkpK4" allowfullscreen></iframe>
+            <h4>Gaming Video 4</h4>
+          </div>
+        </div>
+        <br>
+
+        <!-- Vlogging -->
+
+        <h3>Vlogging</h3>
+        <div class="vlog-gallery">
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/xEM45BVf8Og" allowfullscreen></iframe>
+            <h4>Vlog Video</h4>
+          </div>
+        </div>
+        <br>
+
+        <!-- GameDev -->
+        <h3>Game Development</h3>
+        <div class="video-gallery">
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ZSGiIHlBkl8" allowfullscreen></iframe>
+            <h4>GameDev Video 1</h4>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/eWwUMQhD9no" allowfullscreen></iframe>
+            <h4>GameDev Video 2</h4>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ULtS0-kSJN0" allowfullscreen></iframe>
+            <h4>GameDev Video 3</h4>
+          </div>
+        </div>
+        <br>
+      </div>
+    </section>
+
 
     <!-- Photo Section (Thumbnails, From Portfolio) -->
     <section id="photos" class="portfolio-section">
@@ -462,14 +529,20 @@
           </div>
           <div class="contact-card">
             <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube Logo" class="contact-logo" loading="lazy">
-            <h3>YouTube (Main)</h3>
+            <h3>YouTube (Gaming)</h3>
             <a href="https://www.youtube.com/@imimigeimeo" target="_blank" rel="noopener" class="contact-link">Imimi geimeo</a>
           </div>
           <div class="contact-card">
             <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube Logo" class="contact-logo" loading="lazy">
-            <h3>YouTube (Second)</h3>
+            <h3>YouTube (Game Development)</h3>
             <a href="https://www.youtube.com/@TeamEmogi/videos" target="_blank" rel="noopener" class="contact-link">Team Emogi</a>
           </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube Vlog Channel Logo" class="contact-logo" loading="lazy">
+            <h3>YouTube (Vlogs)</h3>
+            <a href="https://www.youtube.com/@LunoVlogs" target="_blank" rel="noopener" class="contact-link">@LunoVlogs</a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -492,6 +565,6 @@
     <p>Contact me: Discord: <a href="https://www.discordapp.com/users/954607681694470165" target="_blank" rel="noopener">imimi_geimeo</a> | Instagram: <a href="https://www.instagram.com/team_emogi/" target="_blank" rel="noopener">@team_emogi</a></p>
   </footer>
 
-  <script src="script.js"></script> <!-- Your portfolio JS -->
+  <script src="script.js"></script> 
 </body>
 </html>
