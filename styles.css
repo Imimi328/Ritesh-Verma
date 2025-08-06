@@ -930,3 +930,67 @@ footer a:hover {
     transform: none !important;
   }
 }
+
+/* Only apply centering/scaling to the Vlogging video inside the YouTube Videos section */
+#youtube-videos .vlog-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Optional: style for the single vlog video card */
+#youtube-videos .vlog-gallery .video-card {
+  flex: 1 1 0;
+  max-width: 600px;
+}
+
+#youtube-videos .vlog-gallery iframe {
+  width: 100%;
+  height: 340px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+#loader-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.5s;
+}
+
+#loader-canvas {
+  display: block;
+  width: 160px;
+  height: 160px;
+  background: transparent;
+}
+
+#loader-text {
+  margin-top: 32px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.19);
+  transition: color 0.5s;
+}
+
+/* Light Mode: Loader styles adapt on theme */
+body.light-mode #loader-overlay {
+  background: #f0f0f0;
+}
+
+body.light-mode #loader-text {
+  color: #111;
+  text-shadow: 0 2px 6px rgba(180,180,180,0.11);
+}
+
