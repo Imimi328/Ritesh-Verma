@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ritesh Verma | Portfolio & Resume</title>
+  <title>Ritesh Verma | Team Emogi</title>
   <link rel="icon" href="https://i.ibb.co/PFKdcN5/logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"> <!-- Your portfolio CSS -->
@@ -12,32 +12,69 @@
 </head>
 <body>
 
-  <div id="loader-overlay">
-    <canvas id="loader-canvas" width="240" height="240"></canvas>
-    <div id="loader-text">Loading...</div>
-  </div>
 
 
   <!-- Navbar (Merged: Links to all sections) -->
-  <header class="navbar">
-    <a href="#hero" class="logo">Ritesh Verma.</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#work-history">Work_History</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#photos">Thumbnails</a></li>
-      <li><a href="#games">Games</a></li>
-      <li><a href="#repositories">Repositories</a></li>
-      <li><a href="#rocket">Rocket_Project</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li>
-        <button id="theme-toggle" aria-label="Toggle Theme">
-          <span id="theme-icon">🌙</span>
-        </button>
-      </li>
-    </ul>
-  </header>
+  <header class="navbar" role="navigation" aria-label="Primary">
+    <a class="logo" href="https://emogi.space/" aria-label="Team Emogi — Home">
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#00ffcb"/>
+            <stop offset="1" stop-color="#00ffaa"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#g)" stroke-width="3"/>
+        <circle cx="32" cy="32" r="10" fill="url(#g)" opacity="0.95"/>
+      </svg>
+      Team Emogi
+    </a>
+  <button id="menu-toggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false">☰</button>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work-history">Work History</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#photos">Thumbnails</a></li>
+    <li><a href="#games">Games</a></li>
+    <li><a href="#repositories">Repositories</a></li>
+    <li><a href="#rocket">Rocket Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <button id="theme-toggle" aria-label="Toggle Theme" aria-pressed="false">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </li>
+  </ul>
+</header>
+
+<nav id="mobile-menu" class="mobile-menu" hidden>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#work-history">Work History</a>
+  <a href="#videos">Videos</a>
+  <a href="#photos">Thumbnails</a>
+  <a href="#games">Games</a>
+  <a href="#repositories">Repositories</a>
+  <a href="#rocket">Rocket Project</a>
+  <a href="#contact">Contact</a>
+  <button id="theme-toggle-mobile"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle Theme"
+          aria-pressed="false">
+    <span class="theme-icon">🌙</span>
+  </button>
+</nav>
+
+
+  
 
   <main>
     <!-- Hero Section (Merged: Uses portfolio typewriter for subtitle) -->
