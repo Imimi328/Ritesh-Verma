@@ -1,4 +1,4 @@
-// Detects if current device is mobile
+// Detects if current device is mobile (for features like scroll blur, canvas animation, etc.)
 function isMobileDevice() {
   return (
     typeof window.orientation !== "undefined" ||
@@ -6,64 +6,103 @@ function isMobileDevice() {
   );
 }
 
-// Immediately set theme for initial loader display
-(function setInitialThemeForLoader() {
-  const html = document.documentElement;
-  let theme = localStorage.getItem("theme");
-  if (!theme) {
-    theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-  }
-  html.classList.toggle("light-mode", theme === "light");
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
-  const canvas = document.getElementById("hero-canvas");
-
-  // ========== MOBILE DETECTION ==========
-  if (isMobileDevice()) {
-    if (canvas) canvas.style.display = "none";
-    body.classList.add("mobile");
-  } else {
-    initializeCanvas();
-  }
-
-  // ========== THEME: Detection, Initialization, Toggle ==========
+  const navLinks = document.querySelector(".nav-links");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuToggle = document.getElementById("menu-toggle");
   const themeToggle = document.getElementById("theme-toggle");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
   const themeIcon = document.getElementById("theme-icon");
+  const yearElem = document.getElementById("current-year");
+  const backToTop = document.getElementById("back-to-top");
+  const canvas = document.getElementById("hero-canvas");
+  const mq = window.matchMedia("(max-width: 980px)");
 
-  function setBodyTheme(theme) {
-    body.classList.toggle("light-mode", theme === "light");
-    themeIcon.textContent = theme === "light" ? "🌙" : "☀️";
-  }
-
-  function detectSystemTheme() {
-    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setBodyTheme("light");
-    } else {
-      setBodyTheme("dark");
+  // ======= THEME SETUP =======
+  function applyTheme(theme) {
+    const isLight = theme === "light";
+    body.classList.toggle("light-mode", isLight);
+    if (themeIcon) themeIcon.textContent = isLight ? "🌙" : "☀️";
+    if (themeToggleMobile) {
+      const mobileIcon = themeToggleMobile.querySelector(".theme-icon");
+      if (mobileIcon) mobileIcon.textContent = isLight ? "🌙" : "☀️";
+      themeToggleMobile.setAttribute("aria-pressed", String(isLight));
     }
-  }
-
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light" || savedTheme === "dark") {
-    setBodyTheme(savedTheme);
-  } else {
-    detectSystemTheme();
-  }
-
-  themeToggle.addEventListener("click", () => {
-    const isLight = body.classList.toggle("light-mode");
-    const theme = isLight ? "light" : "dark";
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+    }
     localStorage.setItem("theme", theme);
-    themeIcon.textContent = isLight ? "🌙" : "☀️";
+  }
+
+  // Initialize theme
+  let savedTheme = localStorage.getItem("theme");
+  if (!savedTheme) {
+    savedTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  }
+  applyTheme(savedTheme);
+
+  // Bind theme toggles
+  [themeToggle, themeToggleMobile].forEach(btn => {
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-mode");
+      applyTheme(isLight ? "dark" : "light");
+    });
   });
 
-  // ========== TYPEWRITER EFFECT ==========
+  // ======= MENU DISPLAY BASED ON SCREEN SIZE =======
+  function updateMenuDisplay() {
+    if (mq.matches) {
+      navLinks.style.display = "none";
+      if (menuToggle) menuToggle.style.display = "inline-block";
+    } else {
+      navLinks.style.display = "flex";
+      if (menuToggle) menuToggle.style.display = "none";
+      if (mobileMenu) {
+        mobileMenu.setAttribute("hidden", "");
+      }
+      body.classList.remove("nav-open");
+      if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+    }
+  }
+  updateMenuDisplay();
+  mq.addEventListener("change", updateMenuDisplay);
+
+  // ======= MOBILE MENU FUNCTIONALITY =======
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isHidden = mobileMenu.hasAttribute("hidden");
+      mobileMenu.toggleAttribute("hidden", !isHidden);
+      menuToggle.setAttribute("aria-expanded", String(isHidden));
+      body.classList.toggle("nav-open", isHidden);
+    });
+
+    document.addEventListener("click", e => {
+      if (mobileMenu.hasAttribute("hidden")) return;
+      const within = mobileMenu.contains(e.target) || menuToggle.contains(e.target);
+      if (!within) {
+        mobileMenu.setAttribute("hidden", "");
+        menuToggle.setAttribute("aria-expanded", "false");
+        body.classList.remove("nav-open");
+      }
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        mobileMenu.setAttribute("hidden", "");
+        menuToggle.setAttribute("aria-expanded", "false");
+        body.classList.remove("nav-open");
+      }
+    });
+  }
+
+  // ======= TYPEWRITER EFFECT =======
   const typewriterText = "Innovator in Video Editing, Game Development, Software, and Aerospace";
   const typewriterElement = document.querySelector(".typewriter");
   let charIndex = 0;
   function typeWriter() {
+    if (!typewriterElement) return;
     if (charIndex < typewriterText.length) {
       typewriterElement.textContent += typewriterText.charAt(charIndex++);
       setTimeout(typeWriter, 100);
@@ -71,61 +110,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   typeWriter();
 
-  // ========== SCROLL BLUR (Desktop Only) ==========
-  if (!isMobileDevice() && canvas) {
+  // ======= SCROLL BLUR (Desktop Only) =======
+  if (!mq.matches && canvas) {
     window.addEventListener("scroll", () => {
       const blurAmount = Math.min(window.scrollY / 100, 10);
       canvas.style.filter = `blur(${blurAmount}px)`;
-    });
+    }, { passive: true });
   }
 
-  // ========== GSAP ANIMATIONS ==========
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".cta-btn", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      delay: 1.5,
-      onComplete: () => {
-        document.querySelector(".cta-btn").style.visibility = "visible";
-      }
-    });
-
-    gsap.from(".portfolio-section", {
-      scrollTrigger: {
-        trigger: ".portfolio-section",
-        start: "top 80%",
-      },
-      opacity: 0,
-      y: 50,
-      duration: 1,
-    });
-  }
-
-  // ========== CANVAS ANIMATION (Desktop Only) ==========
+  // ======= CANVAS ANIMATION (Desktop Only) =======
   function initializeCanvas() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     class Dot {
       constructor(x, y) {
-        this.x = x; this.y = y;
+        this.x = x;
+        this.y = y;
         this.vx = Math.random() * 2 - 1;
         this.vy = Math.random() * 2 - 1;
         this.radius = Math.random() * 2 + 1;
       }
-
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = body.classList.contains("light-mode") ? "#000" : "#fff";
         ctx.fill();
       }
-
       update() {
         this.x += this.vx;
         this.y += this.vy;
@@ -134,15 +152,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const dots = Array.from({ length: 100 }, 
-      () => new Dot(Math.random() * canvas.width, Math.random() * canvas.height));
+    const dots = Array.from({ length: 100 }, () => new Dot(Math.random()*canvas.width, Math.random()*canvas.height));
 
     function drawLines() {
       for (let i = 0; i < dots.length; i++) {
         for (let j = i + 1; j < dots.length; j++) {
           const dx = dots[i].x - dots[j].x;
           const dy = dots[i].y - dots[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const dist = Math.hypot(dx, dy);
           if (dist < 100) {
             ctx.beginPath();
             ctx.moveTo(dots[i].x, dots[i].y);
@@ -156,37 +173,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach(dot => { dot.update(); dot.draw(); });
+      dots.forEach(d => { d.update(); d.draw(); });
       drawLines();
       requestAnimationFrame(animate);
     }
-
     animate();
   }
 
-  // ========== DYNAMIC FOOTER YEAR ==========
-  const yearElem = document.getElementById("current-year");
-  if (yearElem) yearElem.textContent = new Date().getFullYear();
+  if (!mq.matches) {
+    initializeCanvas();
+  }
 
-  // ========== BACK TO TOP ==========
-  const backToTop = document.getElementById("back-to-top");
+  // ======= DYNAMIC FOOTER YEAR =======
+  if (yearElem) {
+    yearElem.textContent = new Date().getFullYear();
+  }
+
+  // ======= BACK TO TOP =======
   if (backToTop) {
     window.addEventListener("scroll", () => {
       backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    }, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
-    backToTop.addEventListener("click", () =>
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    );
   }
 
-  // ========== MODAL FUNCTIONALITY ==========
+  // helper: instant tap on touch + click fallback
+function bindInstantTap(el, handler) {
+  if (!el) return;
+  // pointerdown gives immediate response on touch; prevent default to avoid duplicate click
+  el.addEventListener('pointerdown', (e) => { e.preventDefault(); handler(e); }, { passive: false });
+  // fallback for non-pointer environments (older browsers/desktops)
+  el.addEventListener('click', (e) => { e.preventDefault(); handler(e); });
+}
+
+// ======= THEME TOGGLES (replace your existing click bindings) =======
+[themeToggle, themeToggleMobile].forEach(btn => {
+  if (!btn) return;
+  bindInstantTap(btn, () => {
+    const isLight = body.classList.contains("light-mode");
+    applyTheme(isLight ? "dark" : "light");
+  });
+});
+
+// ======= MOBILE MENU (augment your existing block) =======
+if (menuToggle && mobileMenu) {
+  // replace menuToggle.addEventListener("click", ...) with:
+  bindInstantTap(menuToggle, () => {
+    const isHidden = mobileMenu.hasAttribute("hidden");
+    mobileMenu.toggleAttribute("hidden", !isHidden);
+    menuToggle.setAttribute("aria-expanded", String(isHidden));
+    body.classList.toggle("nav-open", isHidden);
+  });
+
+  // close when any link inside the mobile panel is tapped
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    bindInstantTap(a, () => {
+      mobileMenu.setAttribute("hidden", "");
+      menuToggle.setAttribute("aria-expanded", "false");
+      body.classList.remove("nav-open");
+    });
+  });
+}
+
+
+  // ======= MODAL FUNCTIONALITY =======
   const modal = document.getElementById("modal");
   if (modal) {
     const modalContent = modal.querySelector(".modal-content");
     const modalClose = modal.querySelector(".modal-close");
 
-    window.openModal = function (src, isVideo) {
-      modalContent.innerHTML = '<div class="modal-loader">Loading...</div>';
+    window.openModal = function(src, isVideo) {
+      modalContent.innerHTML = "";
       modal.style.display = "flex";
       modal.setAttribute("aria-hidden", "false");
       const element = isVideo ? document.createElement("iframe") : document.createElement("img");
@@ -195,11 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         element.allowFullscreen = true;
         Object.assign(element.style, { width: "100%", height: "100%" });
       } else {
-        Object.assign(element.style, {
-          maxWidth: "90%",
-          maxHeight: "90vh",
-          objectFit: "contain"
-        });
+        Object.assign(element.style, { maxWidth: "90%", maxHeight: "90vh", objectFit: "contain" });
       }
       element.onload = () => {
         modalContent.innerHTML = "";
@@ -220,8 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ========== CONTACT CANVAS EFFECT (Desktop Only) ==========
-  if (!isMobileDevice()) {
+  // ======= CONTACT CANVAS EFFECT (Desktop Only) =======
+  if (!mq.matches) {
     const contactCanvas = document.getElementById("contact-canvas");
     if (contactCanvas) {
       const ctx = contactCanvas.getContext("2d");
@@ -261,81 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(animateParticles);
       }
       animateParticles();
-
-      // Loader canvas animation inside contact (if present)
-      loaderCanvasAesthetic();  // Only call if this function is not redefined elsewhere
-
       window.addEventListener("resize", resizeCanvas);
     }
   }
-
-  // ========== LOADER CANVAS ANIMATION ==========
-  function loaderCanvasAesthetic() {
-    const canvas = document.getElementById('loader-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let t = 0;
-
-    function getColor() {
-      return body.classList.contains('light-mode') || document.documentElement.classList.contains('light-mode')
-        ? '#111' : '#fff';
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const baseColor = getColor();
-      const rings = 4;
-      for (let i = 0; i < rings; i++) {
-        const r = 40 + i * 18 + Math.sin((t + i) / 16) * 12;
-        ctx.save();
-        ctx.translate(canvas.width / 2, canvas.height / 2);
-        ctx.rotate((t/70) * (i % 2 === 0 ? 1 : -1));
-        ctx.strokeStyle = `rgba(${baseColor === '#fff' ? '255,255,255' : '17,17,17'},${0.34 + 0.12*i})`;
-        ctx.lineWidth = 3 - i * 0.6;
-        ctx.beginPath();
-        for (let a = 0; a <= 2 * Math.PI; a += Math.PI / 60) {
-          const offs = Math.sin(t/16 + a * 3 + i) * 7 + Math.sin((t + a * 95) / (24 + 6*i)) * 4;
-          ctx.lineTo(
-            Math.cos(a) * (r + offs),
-            Math.sin(a) * (r + offs)
-          );
-        }
-        ctx.closePath();
-        ctx.shadowBlur = 10 - i * 2;
-        ctx.shadowColor = baseColor;
-        ctx.stroke();
-        ctx.restore();
-      }
-      // Center pulse
-      ctx.save();
-      ctx.globalAlpha = 0.5;
-      ctx.beginPath();
-      ctx.arc(canvas.width/2, canvas.height/2, 12 + Math.sin(t/8)*3, 0, 2*Math.PI);
-      ctx.fillStyle = baseColor;
-      ctx.shadowBlur = 20;
-      ctx.shadowColor = baseColor;
-      ctx.fill();
-      ctx.restore();
-
-      t += 1;
-      requestAnimationFrame(draw);
-    }
-    draw();
-    // Update animation color if theme changes
-    const observer = new MutationObserver(draw);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    observer.observe(body, { attributes: true, attributeFilter: ['class'] });
-  }
-
-  // Loader overlay fade out on load
-  window.addEventListener('load', () => {
-    const loaderOverlay = document.getElementById('loader-overlay');
-    if (loaderOverlay) {
-      loaderOverlay.style.opacity = '0';
-      setTimeout(() => {
-        loaderOverlay.style.display = 'none';
-      }, 500);
-    }
-  });
-
 });
