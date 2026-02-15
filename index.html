@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritesh Verma | Team Emogi</title>
+  <link rel="icon" href="https://i.ibb.co/PFKdcN5/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="navbar" role="navigation" aria-label="Primary">
+    <a class="logo" href="https://emogi.space/" aria-label="Team Emogi — Home">
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#00ffcb"/>
+            <stop offset="1" stop-color="#00ffaa"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="28" fill="none" stroke="url(#g)" stroke-width="3"/>
+        <circle cx="32" cy="32" r="10" fill="url(#g)" opacity="0.95"/>
+      </svg>
+      Team Emogi
+    </a>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#rocket">Rocket</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work-history">Work</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#repositories">Repos</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <button id="theme-toggle" aria-label="Toggle Theme" aria-pressed="false">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </li>
+    </ul>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-menu" hidden>
+    <a href="#about">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#rocket">Rocket Project</a>
+    <a href="#skills">Skills</a>
+    <a href="#work-history">Work</a>
+    <a href="#games">Games</a>
+    <a href="#repositories">Repositories</a>
+    <a href="#videos">Videos</a>
+    <a href="#contact">Contact</a>
+    <button id="theme-toggle-mobile" class="theme-toggle" type="button">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Ritesh Verma</h1>
+        <p class="hero-subtitle"><span class="typewriter"></span></p>
+        <a href="#achievements" class="cta-btn">View My Achievements</a>
+      </div>
+      <canvas id="hero-canvas"></canvas>
+    </section>
+
+    <section id="about" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-image-wrapper">
+          <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/RiteshVerma.jpg" alt="Ritesh Verma" class="about-image">
+        </div>
+        <p class="section-desc">
+          I'm Ritesh Verma, a passionate game developer, animator, and innovator. From building custom rockets to developing AI-powered tools, I am fueled by the challenge of bringing ideas to life through code and engineering. I thrive in collaborative environments and am currently pursuing my B.Tech at JSPM University.
+        </p>
+      </div>
+    </section>
+
+    <section id="achievements" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Awards & Achievements</h2>
+        <p class="section-desc">Recognition for innovation in AI, Electronics, and Academics.</p>
+        
+        <div class="achievement-grid">
+          
+          <div class="achievement-card">
+            <div class="achievement-img-container">
+               <img src="https://github.com/Imimi328/Ritesh-Verma/blob/Images/JAiForum.jpeg?raw=true" alt="JAi Forum Hackathon Win" loading="lazy">
+            </div>
+            <div class="achievement-content">
+              <h3>🥈 2nd Prize: JAi Forum Hackathon</h3>
+              <p class="achievement-meta">Prize: ₹5000 | Project: AI Music Generation</p>
+              <p>Developed a locally hosted API for generating non-copyright background music for small businesses and music therapy. The system utilizes my custom "EmogiGPT" model.</p>
+              <a href="https://music.emogi.space" target="_blank" class="text-link">Visit music.emogi.space (Server Offline)</a>
+              <br><br>
+              <button class="action-btn small" onclick="openModal('https://github.com/Imimi328/Ritesh-Verma/blob/Images/JAiForum.jpeg?raw=true', false)">View Certificate</button>
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-img-container">
+               <img src="https://github.com/Imimi328/Ritesh-Verma/blob/Images/Electronics1.jpeg?raw=true" alt="Rescue Rover" loading="lazy">
+            </div>
+            <div class="achievement-content">
+              <h3>🥈 2nd Prize: Desai College Electronics</h3>
+              <p class="achievement-meta">Project: Rescue Rover</p>
+              <p>Engineered a working rescue rover capable of traversing rough terrain and retrieving objects using a custom robotic arm mechanism.</p>
+              <div class="btn-group">
+                <a href="https://youtube.com/shorts/vbQOLs_6zQY" target="_blank" class="action-btn small">Watch Rover Video</a>
+                <button class="action-btn small" onclick="openModal('https://github.com/Imimi328/Ritesh-Verma/blob/Images/Electronics1.jpeg?raw=true', false)">View Trophy</button>
+                <button class="action-btn small" onclick="openModal('https://github.com/Imimi328/Ritesh-Verma/blob/Images/Electronics2.jpeg?raw=true', false)">View Team</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="achievement-card">
+            <div class="achievement-content full-width">
+              <h3>🏆 SIH Internal Hackathon Shortlist</h3>
+              <p class="achievement-meta">Project: Multilingual Chatbot</p>
+              <p>Shortlisted for the Smart India Hackathon internal round. Developed a multilingual chatbot powered by "EmogiGPT," a custom LLM backend designed for seamless cross-language communication.</p>
+              <a href="https://jspm.emogi.space" target="_blank" class="text-link">Visit jspm.emogi.space (Server Offline)</a>
+              <br><br>
+              <a href="https://youtu.be/c7JTtgai_VA" target="_blank" class="action-btn small">Watch Demo Video</a>
+            </div>
+          </div>
+
+          <div class="achievement-card academic-card">
+            <div class="achievement-content full-width">
+              <h3>🎓 Academic Excellence</h3>
+              <p class="achievement-meta">JSPM University | B.Tech First Year</p>
+              <p>Achieved an outstanding <strong>8.98 SGPA</strong> in Semester 1.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="rocket" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Rocket Project (2024–2025)</h2>
+        <div class="wiki-layout">
+          <div class="wiki-infobox">
+             <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/RiteshVerma2.jpg" class="infobox-image" alt="Rocket">
+             <p><strong>Inspiration:</strong> Chandrayaan-3</p>
+             <button class="action-btn small" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/RiteshVerma2.jpg', false)">View Full Image</button>
+          </div>
+          <div class="wiki-content">
+            <div class="wiki-section">
+              <h3>Overview</h3>
+              <p>A pioneering student-led aerospace endeavor featuring a custom solid-fuel rocket and deployable rover. Funded by SNBP Yerwada (₹40,000).</p>
+            </div>
+            <div class="wiki-section">
+              <h3>Specifications</h3>
+              <ul>
+                <li><strong>Mass:</strong> 4.5 kg</li>
+                <li><strong>Apogee:</strong> ~500 meters</li>
+                <li><strong>Tech:</strong> Custom Flight Computer (C++), Telemetry, Thrust Vector Control.</li>
+              </ul>
+            </div>
+            <div class="wiki-section">
+              <h3>Media</h3>
+              <div class="video-gallery">
+                <div class="video-card"><iframe src="https://www.youtube.com/embed/oCPvXFcLTVM"></iframe><p>Rover Demo</p></div>
+                <div class="video-card"><iframe src="https://www.youtube.com/embed/yPDDjBWBZp4"></iframe><p>TVC Test</p></div>
+                <div class="video-card"><iframe src="https://www.youtube.com/embed/OGqf8eJDpsg"></iframe><p>Launch Plan</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card" data-skill="100"><h3>Coding</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="100"><h3>OOP</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="80"><h3>Testing & Debugging</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="100"><h3>Unity</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="80"><h3>Color Grading</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="60"><h3>Adobe Premiere Pro</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="60"><h3>Adobe After Effects</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="100"><h3>Filmora 13</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="100"><h3>CapCut</h3><div class="progress-bar"></div></div>
+          <div class="skill-card" data-skill="100"><h3>Advanced Editing</h3><div class="progress-bar"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work-history" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Work History</h2>
+        <div class="work-card">
+          <h3>Team Emogi (Pune)</h3>
+          <h4>Programmer (April 2019 - April 2022)</h4>
+          <ul>
+            <li>Designed and developed robust software solutions.</li>
+            <li>Collaborated with team members on app requirements.</li>
+            <li>Identified opportunities for process improvement.</li>
+          </ul>
+          <h4>3D Animator (April 2022 - Present)</h4>
+          <ul>
+            <li>Developed gameplay mechanics using C# in Unity.</li>
+            <li>Collaborated with designers and artists for asset integration.</li>
+            <li>Optimized game performance and debugging.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="games" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Game Development</h2>
+        <div style="text-align:center; margin-bottom:20px;">
+          <a href="https://emogi.itch.io/" target="_blank" rel="noopener" class="action-btn">Visit My itch.io Page</a>
+        </div>
+        <div class="game-gallery">
+          <div class="game-card">
+            <img src="https://img.itch.zone/aW1nLzIwMzUwNTkyLnBuZw==/315x250%23c/FpExiq.png" alt="Fragments of Reality" loading="lazy">
+            <h3>Fragments of Reality</h3>
+            <p>Psychological horror walking simulator.</p>
+            <a href="https://emogi.itch.io/fragmentsofreality" target="_blank" class="action-btn small">Play Now</a>
+          </div>
+          <div class="game-card">
+             <img src="https://img.itch.zone/aW1nLzIxMDg4NTc1LmpwZw==/315x250%23c/8aPiyi.jpg" alt="Indian Taxi" loading="lazy">
+             <h3>Indian Wagon R Taxi</h3>
+             <p>Taxi simulation set in India.</p>
+             <iframe loading="lazy" src="https://www.youtube.com/embed/ULtS0-kSJN0" allowfullscreen></iframe>
+             <br><br>
+             <a href="https://emogi.itch.io/wagon-r-taxi-game" target="_blank" class="action-btn small">Play Now</a>
+          </div>
+          <div class="game-card">
+            <img src="https://img.itch.zone/aW1nLzIxMjc5MDM0LmpwZw==/315x250%23c/1EaJvD.jpg" alt="Doraemon" loading="lazy">
+            <h3>Doraemon 3D Open World</h3>
+            <p>Open-world adventure inspired by Doraemon.</p>
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ZSGiIHlBkl8" allowfullscreen></iframe>
+            <br><br>
+            <a href="https://emogi.itch.io/doraeman" target="_blank" class="action-btn small">Play Now</a>
+          </div>
+        </div>
+        <br>
+        <h3>GameDev Videos</h3>
+        <div class="video-gallery">
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/ZSGiIHlBkl8" allowfullscreen></iframe><h4>GameDev Video 1</h4></div>
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/eWwUMQhD9no" allowfullscreen></iframe><h4>GameDev Video 2</h4></div>
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/ULtS0-kSJN0" allowfullscreen></iframe><h4>GameDev Video 3</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="repositories" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Repositories</h2>
+        <div class="repo-gallery">
+          <div class="repo-card">
+            <h3>OBS-Scene-Controller</h3>
+            <p>Streamline OBS scene management with Python & Flask.</p>
+            <a href="https://github.com/Imimi328/OBS-Scene-Controller" target="_blank" class="action-btn small">View on GitHub</a>
+            <br><br>
+            <a href="https://imimi328.github.io/OBS-Scene-Controller/" target="_blank" class="action-btn small">Webpage</a>
+          </div>
+          <div class="repo-card">
+            <h3>OpenPDF</h3>
+            <p>Lightweight PDF viewer built with Python and PyQt5.</p>
+            <a href="https://github.com/Imimi328/OpenPDF" target="_blank" class="action-btn small">View on GitHub</a>
+             <br><br>
+            <a href="https://imimi328.github.io/OpenPDF/" target="_blank" class="action-btn small">Webpage</a>
+          </div>
+          <div class="repo-card">
+            <h3>Live-Wallpaper</h3>
+            <p>Live wallpaper engine made with pure Python.</p>
+            <a href="https://github.com/Imimi328/Live-Wallpaper" target="_blank" class="action-btn small">View on GitHub</a>
+             <br><br>
+            <a href="https://imimi328.github.io/Live-Wallpaper/" target="_blank" class="action-btn small">Webpage</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Video Editing Portfolio</h2>
+        <div class="video-gallery">
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/ULtS0-kSJN0" allowfullscreen></iframe>
+            <h3>3D Animation</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://player.vimeo.com/video/1033377518?h=2fdef938d4" allowfullscreen></iframe>
+            <h3>Advertisement</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/r-Cxm-K4GVM" allowfullscreen></iframe>
+            <h3>Documentary Style</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/dgzO1jKTPio" allowfullscreen></iframe>
+            <h3>Gaming</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/IJldof7R7Qg" allowfullscreen></iframe>
+            <h3>3D Map Animation</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/U9dUnVU8PEE" allowfullscreen></iframe>
+            <h3>3D Scene</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/aDwq-YDF_aw" allowfullscreen></iframe>
+            <h3>VFX</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/5H07gIJ7Hv8" allowfullscreen></iframe>
+            <h3>VFX 1</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/_WX0Kf51EYk" allowfullscreen></iframe>
+            <h3>3D Animation 1</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/PZJk1k1mDIo" allowfullscreen></iframe>
+            <h3>3D Animation 2</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/bi-gWYtmlY4" allowfullscreen></iframe>
+            <h3>KeyFrame</h3>
+          </div>
+           <div class="video-card">
+            <iframe loading="lazy" src="https://player.vimeo.com/video/1033378391?h=5d8f485eab" allowfullscreen></iframe>
+            <h3>Gaming Style</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/F-V_5u198cY" allowfullscreen></iframe>
+            <h3>Shorts or Reels</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/E2u8o_DbklQ" allowfullscreen></iframe>
+            <h3>Vlog Style</h3>
+          </div>
+          <div class="video-card">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/JHo-qSLM5tk" allowfullscreen></iframe>
+            <h3>2D Animation</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Thumbnail Designing</h2>
+        <div class="photo-gallery">
+          <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/1.jpg" alt="Thumbnail 1" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/1.jpg', false)">View</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/2.jpg" alt="Thumbnail 2" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/2.jpg', false)">View</button>
+          </div>
+          <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/3.jpg" alt="Thumbnail 3" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/3.jpg', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/4.webp" alt="Thumbnail 4" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/4.webp', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/6.jpg" alt="Thumbnail 6" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/6.jpg', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/7.jpg" alt="Thumbnail 7" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/7.jpg', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/8.png" alt="Thumbnail 8" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/8.png', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/9.jpg" alt="Thumbnail 9" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/9.jpg', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/10.jpg" alt="Thumbnail 10" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/10.jpg', false)">View</button>
+          </div>
+           <div class="photo-card">
+            <img src="https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/11.png" alt="Thumbnail 11" loading="lazy">
+            <button class="action-btn" onclick="openModal('https://raw.githubusercontent.com/Imimi328/Ritesh-Verma/refs/heads/Images/11.png', false)">View</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="youtube-videos" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">YouTube Gaming Content</h2>
+        <div class="video-gallery">
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/dgzO1jKTPio" allowfullscreen></iframe><h4>Gaming Video 1</h4></div>
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/YiLT8J4bbWY" allowfullscreen></iframe><h4>Gaming Video 2</h4></div>
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/5KybMRZsfTQ" allowfullscreen></iframe><h4>Gaming Video 3</h4></div>
+          <div class="video-card"><iframe loading="lazy" src="https://www.youtube.com/embed/O20fsEHkpK4" allowfullscreen></iframe><h4>Gaming Video 4</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-desc">Let's connect and create something amazing together!</p>
+        <canvas id="contact-canvas" class="contact-canvas"></canvas>
+        <div class="contact-gallery">
+          <div class="contact-card">
+            <img src="https://i.ibb.co/GfFBzFhR/discord-logo-discord-icon-transparent-free-png.png" alt="Discord" class="contact-logo">
+            <h3>Discord</h3>
+            <a href="https://www.discordapp.com/users/954607681694470165" target="_blank" class="contact-link">imimi_geimeo</a>
+          </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/Tq4DWTmf/instagram-icon-512x512-ggh8x3cn.png" alt="Instagram" class="contact-logo">
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/team_emogi/" target="_blank" class="contact-link">@team_emogi</a>
+          </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube" class="contact-logo">
+            <h3>YouTube (Gaming)</h3>
+            <a href="https://www.youtube.com/@imimigeimeo" target="_blank" class="contact-link">Imimi geimeo</a>
+          </div>
+          <div class="contact-card">
+            <img src="https://i.ibb.co/8nCm9krY/youtube-logo-a100.png" alt="YouTube" class="contact-logo">
+            <h3>YouTube (GameDev)</h3>
+            <a href="https://www.youtube.com/@TeamEmogi/videos" target="_blank" class="contact-link">Team Emogi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content"></div>
+  </div>
+
+  <button id="back-to-top" aria-label="Back to Top">↑</button>
+
+  <footer>
+    <p>© <span id="current-year"></span> Ritesh Verma || Team Emogi. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
