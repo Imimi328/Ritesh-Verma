@@ -60,10 +60,9 @@ body.light-mode .navbar {
 body.light-mode .logo { color: #000; }
 
 .logo-img {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-  display: block;
+  height: 32px !important;
+  width: auto !important;
+  max-height: 32px !important;
 }
 
 /* ========================= */
@@ -377,3 +376,4 @@ body.light-mode footer {
   margin: 0 auto 20px;
   display: block;
 }
+
