@@ -105,6 +105,18 @@ body.light-mode {
   justify-content: center;
   text-align: center;
   padding: 0 5%;
+  position: relative;
+  margin-top: 80px; /* Prevent overlap with fixed navbar */
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps canvas behind content */
 }
 
 .hero-title {
@@ -190,7 +202,7 @@ body.light-mode {
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* Card Images Only (Not Global) */
+/* Card Images Only */
 
 .photo-card img,
 .game-card img {
