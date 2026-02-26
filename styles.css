@@ -63,6 +63,12 @@ body.light-mode .navbar ul li a { color: #000; }
 }
 body.light-mode .navbar .logo { color: #000; }
 
+.logo-img {
+  height: 40px; /* Limits the logo height to fit the navbar */
+  width: auto;
+  object-fit: contain;
+}
+
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
